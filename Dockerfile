@@ -50,5 +50,5 @@ RUN autoconf && autoheader && ./configure \
         --enable-optimizations \
         --enable-loadable-sqlite-extensions \
         --with-dtrace \
-        --with-valgrind
+        --with-pydebug | sed "/yes$/d"
 RUN make --silent -j $(nproc) && make --silent -j $(nproc) install
