@@ -34,12 +34,12 @@ jobs:
         with:
           pythonExe: ${{ matrix.yum_python }}
 
-    - uses: actions/checkout@v2
-    - name: Setup yum assumeyes, sudo and docker
-      run: |
-        echo "assumeyes=1" >> /etc/yum.conf
-        yum install sudo
-        curl -L https://get.docker.com/ | bash -s
+      - uses: actions/checkout@v2
+      - name: Setup yum assumeyes, sudo and docker
+        run: |
+          echo "assumeyes=1" >> /etc/yum.conf
+          yum install sudo
+          curl -L https://get.docker.com/ | bash -s
 
-    - run: rez build --install
-    - run: rez env python-3 -c 'python3 -V | grep "${REZ_PYTHON_VERSION%%+*}"'
+      - run: rez build --install
+      - run: rez env python-3 -c 'python3 -V | grep "${REZ_PYTHON_VERSION%%+*}"'
