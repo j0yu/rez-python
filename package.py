@@ -1,7 +1,7 @@
 name = "python"
 
-__version__ = "3.7.10"
-version = __version__
+__version__ = "3.7.11"
+version = __version__ + "+local.1.0.0"
 
 relocatable = True
 
