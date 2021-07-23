@@ -18,7 +18,7 @@ curl "${CURL_FLAGS[@]}" "$URL" \
 | tar --strip-components=1 -xJ
 
 ./configure --prefix="$INSTALL_DIR" --with-pydebug --enable-shared
-LD_RUN_PATH='$ORIGIN:$ORIGIN/../lib' make -s -j"$(nproc)"
+LD_RUN_PATH='$ORIGIN/../lib:'"$INSTALL_DIR"/lib make -s -j"$(nproc)"
 make -s -j"$(nproc)" install
 
 # Ensure all libraries are linked properly. Exit 1 if any libraries are "not found"
